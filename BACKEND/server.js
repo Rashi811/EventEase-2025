@@ -3,6 +3,9 @@ const mongoose = require("mongoose");
 const eventRoutes = require("./Routes/eventRoutes");
 
 const app = express();
+const cors = require("cors");
+app.use(cors());
+
 
 // Middleware
 app.use(express.json());

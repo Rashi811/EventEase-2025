@@ -23,18 +23,19 @@ const AddEvent = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Submitting Event Data:", eventData); // Debugging log
-
+  
     try {
-      await axios.post("http://localhost:5000/events", eventData)
-        .then((response) => {
-          console.log("Event added successfully:", response.data);
-          navigate("/event-summary", { state: { eventData: response.data } });
-        });
+      const response = await axios.post("http://localhost:5000/events", eventData);
+      console.log("Event added successfully:", response.data);
+  
+      navigate("/event-summary", { state: { eventData: response.data } });
+  
     } catch (error) {
-      console.error("Error adding event:", error);
+      console.error("Error adding event:", error.response ? error.response.data : error.message);      
       alert("Failed to submit the event. Please check console for errors.");
     }
   };
+  
 
   return (
     <div className="add-event">
