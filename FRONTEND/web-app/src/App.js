@@ -4,6 +4,8 @@ import HomePage from "./component/HomePage"; // Ensure this is the correct path
 import EventHome from "./component/EventHome";
 import AddEvent from "./component/AddEvent";
 import EventSummary from "./component/EventSummary";
+import UpdateEvent from "./component/UpdateEvent";
+
 function App() {
   return (
     <BrowserRouter>
@@ -13,6 +15,9 @@ function App() {
           <Route path="/event" element={<EventHome />} />
           <Route path="/add-event" element={<AddEvent />} />
           <Route path="/event-summary" element={<EventSummary />} />
+          <Route path="/event-details" element={<EventSummary />} />
+          <Route path="/update-event" element={<UpdateEvent />} />
+
         </Routes>
       </div>
     </BrowserRouter>
