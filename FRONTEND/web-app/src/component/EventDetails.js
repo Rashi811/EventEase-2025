@@ -60,6 +60,12 @@ const EventDetails = () => {
           ))
         )}
       </div>
+
+      {/* Back to Home Button */}
+      <button className="back-home-btn" onClick={() => navigate("/")}>
+        Back to Home
+      </button>
+
     </div>
   );
 };

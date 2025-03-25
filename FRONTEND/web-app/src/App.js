@@ -6,10 +6,13 @@ import AddEvent from "./component/AddEvent";
 import EventSummary from "./component/EventSummary";
 import EventDetails from "./component/EventDetails";
 import UpdateEvent from "./component/UpdateEvent";
+import Header from "./component/Header";  // Import Header
+import Footer from "./component/Footer";
 
 function App() {
   return (
     <BrowserRouter>
+    <Header />
       <div>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -21,6 +24,7 @@ function App() {
 
         </Routes>
       </div>
+      <Footer />
     </BrowserRouter>
   );
 }
