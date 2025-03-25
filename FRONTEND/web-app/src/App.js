@@ -8,6 +8,7 @@ import EventDetails from "./component/EventDetails";
 import UpdateEvent from "./component/UpdateEvent";
 import Header from "./component/Header";  // Import Header
 import Footer from "./component/Footer";
+import AboutUs from "./component/AboutUs"
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
           <Route path="/event-summary/" element={<EventSummary />} />
           <Route path="/update-event/" element={<UpdateEvent />} />
           <Route path="/event-details/" element={<EventDetails />} />
+          <Route path="/about/" element={<AboutUs />} />
+
 
         </Routes>
       </div>

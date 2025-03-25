@@ -6,11 +6,11 @@ function HomePage() {
     <div className="homePage">
       <nav className="navbar">
         <ul className="nav-links">
-          <li><a href="#home">Home</a></li>
           <li><a href="event">Event</a></li>
           <li><a href="#venue">Venue</a></li>
           <li><a href="#staff">Staff</a></li>
-          <li><a href="#register">Register</a></li>
+          <li><a href="#staff">ChatUs</a></li>
+          <li><a href="about">AboutUs</a></li>
         </ul>
       </nav>
 
