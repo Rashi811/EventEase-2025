@@ -13,18 +13,19 @@ const getAllEvents = async (req, res) => {
     }
 };
 
-// Add Event
+//create new event
 const addEvents = async (req, res) => {
     const { eventType, eventName, contactNumber, email, date, guestCount, guestDetails, specialNotes } = req.body;
 
     try {
         const event = new Event({ eventType, eventName, contactNumber, email, date, guestCount, guestDetails, specialNotes });
         await event.save();
-        return res.status(201).json({ event });
+        return res.status(201).json(event); // Directly return the event object
     } catch (err) {
         return res.status(500).json({ message: "Error inserting event", error: err.message });
     }
 };
+
 
 // Get Event by ID
 const getById = async (req, res) => {
