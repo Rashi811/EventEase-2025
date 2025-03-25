@@ -22,34 +22,37 @@ const AddEvent = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submitting Event Data:", eventData); // Debugging log
-  
+    console.log("Submitting Event Data:", eventData);
+
     try {
-      const response = await axios.post("http://localhost:5000/events", eventData);
-      console.log("Event added successfully:", response.data);
-  
-      navigate("/event-summary", { state: { eventData: response.data } });
-  
+      await axios.post("http://localhost:5000/events", eventData);
+      
+      // Show success message
+      alert("Event added successfully!");
+
+      // Navigate to home page
+      navigate('/');
     } catch (error) {
-      console.error("Error adding event:", error.response ? error.response.data : error.message);      
-      alert("Failed to submit the event. Please check console for errors.");
+      console.error("Error adding event:", error.response ? error.response.data : error.message);
+      alert("Failed to submit the event. Please try again.");
     }
   };
-  
 
   return (
     <div className="add-event">
       <h1>Add New Event</h1>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="eventType" placeholder="Event Type" onChange={handleChange} required />
-        <input type="text" name="eventName" placeholder="Event Name" onChange={handleChange} required />
-        <input type="text" name="contactNumber" placeholder="Contact Number" onChange={handleChange} required />
-        <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
-        <input type="date" name="date" onChange={handleChange} required />
-        <input type="number" name="guestCount" placeholder="Guest Count" onChange={handleChange} required />
-        <textarea name="guestDetails" placeholder="Guest Details" onChange={handleChange}></textarea>
-        <textarea name="specialNotes" placeholder="Special Notes" onChange={handleChange}></textarea>
+        <input type="text" name="eventType" placeholder="Event Type" value={eventData.eventType} onChange={handleChange} required />
+        <input type="text" name="eventName" placeholder="Event Name" value={eventData.eventName} onChange={handleChange} required />
+        <input type="text" name="contactNumber" placeholder="Contact Number" value={eventData.contactNumber} onChange={handleChange} required />
+        <input type="email" name="email" placeholder="Email" value={eventData.email} onChange={handleChange} required />
+        <input type="date" name="date" value={eventData.date} onChange={handleChange} required />
+        <input type="number" name="guestCount" placeholder="Guest Count" value={eventData.guestCount} onChange={handleChange} required />
+        <textarea name="guestDetails" placeholder="Guest Details" value={eventData.guestDetails} onChange={handleChange}></textarea>
+        <textarea name="specialNotes" placeholder="Special Notes" value={eventData.specialNotes} onChange={handleChange}></textarea>
+        
         <button type="submit">Submit</button>
+        
       </form>
     </div>
   );
