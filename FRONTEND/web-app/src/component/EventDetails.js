@@ -54,8 +54,9 @@ const EventDetails = () => {
               <p><strong>Guest Details:</strong> {event.guestDetails}</p>
               <p><strong>Special Notes:</strong> {event.specialNotes}</p>
 
-              <button onClick={() => handleUpdate(event)}>Update</button>
-              <button onClick={() => handleDelete(event._id)}>Delete</button>
+              <button className="update-button" onClick={() => handleUpdate(event)}>Update</button>
+              <button className="delete-button" onClick={() => handleDelete(event._id)}>Delete</button>
+
             </div>
           ))
         )}
