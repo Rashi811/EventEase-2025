@@ -4,15 +4,21 @@
     color: white;
     padding: 20px;
     margin-top: 30px;
+    font-size: 21px; /* Increase the footer text size */
   }
   
   .social-icons a {
     margin: 0 10px;
     color: white;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 21px;
   }
   
+  .social-icons svg {
+    font-size: 28px; /* Increase the size of the icons */
+    vertical-align: middle; /* Ensures proper alignment */
+  }
+
   .social-icons a:hover {
     color: #ffcc00;
   }
