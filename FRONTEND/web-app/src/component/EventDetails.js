@@ -61,9 +61,9 @@ const EventDetails = () => {
           ))
         )}
       </div>
-
+<br></br><br></br>
       {/* Back to Home Button */}
-      <button className="back-home-btn" onClick={() => navigate("/")}>
+      <button className="back-home-btn" onClick={() => navigate("/event")}>
         Back to Home
       </button>
 
