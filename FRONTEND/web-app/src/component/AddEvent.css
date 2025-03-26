@@ -126,7 +126,7 @@ html, body {
   width: 500px;
   max-width: 90%;
   margin: 0 auto;
-  transform: translateY(7px); /* Moves the form container up */
+  transform: translateY(15px); /* Moves the form container up */
 }
 
 form {
