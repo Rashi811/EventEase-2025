@@ -32,7 +32,6 @@ function HomePage() {
           <li><a href="#staff">Staff</a></li>
           <li><a href="#chat">Chat Us</a></li>
           <li><a href="about">About</a></li>
-          <li><a href="contact">Contact</a></li>
         </ul>
       </nav>
 

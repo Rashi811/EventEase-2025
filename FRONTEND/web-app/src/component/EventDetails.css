@@ -9,35 +9,36 @@ html, body {
 .event-details {
   text-align: center;
   margin-top: 30px;
-  padding-bottom: 100px; /* Increased space at the bottom for more space under the page */
-  min-height: 100vh; /* Ensures it takes full height */
+  padding-bottom: 100px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Align content at the top */
+  justify-content: flex-start;
 }
 
-/* Flex container for the event list */
+/* Flex container for the event list - now with wrap and two-column layout */
 .event-list {
   display: flex;
-  flex-direction: column; /* Stack events vertically */
-  align-items: center; /* Center events horizontally */
-  justify-content: flex-start; /* Stack the events at the top */
+  flex-wrap: wrap; /* Allow items to wrap */
+  justify-content: center; /* Center the rows */
+  align-items: flex-start; /* Align items to the top */
   width: 100%;
-  flex-grow: 1; /* Allows the event list to take available space */
+  gap: 20px; /* Space between cards */
 }
 
-/* Event card styles */
+/* Event card styles - modified for two-column layout */
 .event-card {
   background: #f8f9fa;
   padding: 20px;
   border-radius: 8px;
-  margin: 15px 0;
-  width: 100%;
+  width: calc(50% - 20px); /* Take up half the width, accounting for gap */
   max-width: 600px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   text-align: left;
+  box-sizing: border-box; /* Include padding and border in width calculation */
 }
 
+/* Event card heading and paragraph styles */
 .event-card h3 {
   margin-bottom: 15px;
   color: #007bff;
@@ -51,9 +52,9 @@ html, body {
   text-align: left;
 }
 
-/* Update Button (Green) */
+/* Button styles */
 .event-card button.update-button {
-  background-color: #28a745; /* Green color for Update button */
+  background-color: #28a745;
   color: white;
   padding: 12px 24px;
   border: none;
@@ -61,17 +62,15 @@ html, body {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-right: 10px; /* Add space between buttons */
+  margin-right: 10px;
 }
 
-/* Dark Green on hover */
 .event-card button.update-button:hover {
-  background-color: #218838; /* Dark green on hover */
+  background-color: #218838;
 }
 
-/* Delete Button (Red) */
 .event-card button.delete-button {
-  background-color: #dc3545; /* Red color for Delete button */
+  background-color: #dc3545;
   color: white;
   padding: 12px 24px;
   border: none;
@@ -81,34 +80,29 @@ html, body {
   transition: background-color 0.3s ease;
 }
 
-/* Dark Red on hover */
 .event-card button.delete-button:hover {
-  background-color: #c82333; /* Dark red on hover */
+  background-color: #c82333;
 }
 
-/* Footer styling */
-footer {
-  margin-top: 20px; /* Space between content and footer */
-  padding-top: 0px;
-  width: 100%;
-  position: relative; /* Ensure the footer doesn't overlap content */
-  background-color: #f1f1f1;
-  padding-bottom: 100px; /* Added padding at the bottom of the footer for extra space */
-}
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .event-list {
+    flex-direction: row; /* Make sure the items are in a row */
+    justify-content: center;
+  }
+  
+  /* Make sure each event card takes up 50% of the width */
+  .event-card {
+    width: calc(50% - 20px); /* Ensure two items per row */
+  }
 
-/* Back to home button styling */
-.back-home-btn {
-  background-color: #007bff;
-  color: white;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 20px;
-}
-
-.back-home-btn:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  .back-home-btn {
+    background-color: #6ecce6 !important; /* Light blue */
+    color: black !important; /* Black text for better readability */
+  }
+  
+  .back-home-btn:hover {
+    background-color: #0056b3 !important; /* Dark blue on hover */
+    color: white !important; /* White text when hovering */
+  }
 }
