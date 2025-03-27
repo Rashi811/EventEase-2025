@@ -1,58 +1,87 @@
-const Event = require('../Model/Event');
+const Event = require("../Model/Event");
 
-exports.createEvent = async (req, res) => {
+// Get All Events
+const getAllEvents = async (req, res) => {
     try {
-        const event = await Event.create(req.body);
-        res.status(201).json(event);
-    } catch (error) {
-        res.status(400).json({ message: error.message });
+        const events = await Event.find();
+        if (!events || events.length === 0) {
+            return res.status(404).json({ message: "No events found" });
+        }
+        return res.status(200).json({ events });
+    } catch (err) {
+        return res.status(500).json({ message: "Error fetching events", error: err.message });
     }
 };
 
-exports.getEvents = async (req, res) => {
-    const events = await Event.find();
-    res.json(events);
-};
+//create new event
+const addEvents = async (req, res) => {
+    const { eventType, eventName, contactNumber, email, date, guestCount, guestDetails, specialNotes } = req.body;
 
-exports.getEvent = async (req, res) => {
-    const event = await Event.findOne({ eventName: req.params.eventName });
-    if (!event) {
-        return res.status(404).json({ message: "Event not found" });
-    }
-    res.json(event);
-};
-
-exports.updateEvent = async (req, res) => {
     try {
-        const event = await Event.findOneAndUpdate(
-            { eventName: req.params.eventName }, // Filter by eventName
-            req.body, // Updated data
-            { new: true, runValidators: true } // Return the updated document and run validators
+        const event = new Event({ eventType, eventName, contactNumber, email, date, guestCount, guestDetails, specialNotes });
+        await event.save();
+        return res.status(201).json(event); // Directly return the event object
+    } catch (err) {
+        return res.status(500).json({ message: "Error inserting event", error: err.message });
+    }
+};
+
+
+// Get Event by ID
+const getById = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const event = await Event.findById(id);
+        if (!event) {
+            return res.status(404).json({ message: "Event not found" });
+        }
+        return res.status(200).json({ event });
+    } catch (err) {
+        return res.status(500).json({ message: "Error fetching event", error: err.message });
+    }
+};
+
+// Update Event by ID
+const updateEvent = async (req, res) => {
+    const { id } = req.params;
+    const { eventType, eventName, contactNumber, email, date, guestCount, guestDetails, specialNotes } = req.body;
+
+    try {
+        const event = await Event.findByIdAndUpdate(
+            id,
+            { eventType, eventName, contactNumber, email, date, guestCount, guestDetails, specialNotes },
+            { new: true }
         );
+
         if (!event) {
             return res.status(404).json({ message: "Event not found" });
         }
-        res.json(event);
-    } catch (error) {
-        res.status(400).json({ message: error.message });
+
+        return res.status(200).json({ event });
+    } catch (err) {
+        return res.status(500).json({ message: "Error updating event", error: err.message });
     }
 };
 
-exports.deleteEvent = async (req, res) => {
+// Delete Event by ID
+const deleteEvent = async (req, res) => {
+    const { id } = req.params;
+
     try {
-        const event = await Event.findOneAndDelete({ eventName: req.params.eventName });
+        const event = await Event.findByIdAndDelete(id);
         if (!event) {
             return res.status(404).json({ message: "Event not found" });
         }
-        res.json({ message: 'Event deleted' });
-    } catch (error) {
-        res.status(400).json({ message: error.message });
+        return res.status(200).json({ message: "Event deleted successfully" });
+    } catch (err) {
+        return res.status(500).json({ message: "Error deleting event", error: err.message });
     }
 };
 
-exports.generateSummaryReport = async (req, res) => {
-    const events = await Event.find();
-    res.json({ totalEvents: events.length, events });
-};
-
-
+// Export Controllers
+exports.getAllEvents = getAllEvents;
+exports.addEvents = addEvents;
+exports.getById = getById;
+exports.updateEvent = updateEvent;
+exports.deleteEvent = deleteEvent;
