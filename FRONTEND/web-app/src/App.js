@@ -8,7 +8,13 @@ import EventDetails from "./component/EventDetails";
 import UpdateEvent from "./component/UpdateEvent";
 import Header from "./component/Header";  // Import Header
 import Footer from "./component/Footer";
-import AboutUs from "./component/AboutUs"
+import AboutUs from "./component/AboutUs";
+
+//Gangani
+import TaskDashboard from "./component/Task/TaskDashboard";
+import TaskCreateForm from "./component/Task/CreateTaskForm";
+import TaskList from "./component/Task/TaskList";
+import UpdateTaskForm from "./component/Task/UpdateTask";
 
 function App() {
   return (
@@ -23,8 +29,10 @@ function App() {
           <Route path="/update-event/" element={<UpdateEvent />} />
           <Route path="/event-details/" element={<EventDetails />} />
           <Route path="/about/" element={<AboutUs />} />
-
-
+          <Route path="/task-dashboard/" element={<TaskDashboard/>} />
+          <Route path="/create-task/" element={<TaskCreateForm/>} />
+          <Route path="/task-list/" element={<TaskList/>}/>
+          <Route path="/update-task/:id" element={<UpdateTaskForm/>} />
         </Routes>
       </div>
       <Footer />

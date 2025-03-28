@@ -6,10 +6,12 @@ const app = express();
 const cors = require("cors");
 app.use(cors());
 
+const taskRoutes = require('./Routes/taskRoutes');
 
 // Middleware
 app.use(express.json());
 app.use("/events", eventRoutes);
+app.use('/api/tasks', taskRoutes);
 
 mongoose
     .connect("mongodb+srv://admin:qdCLshxvlN21D6PJ@cluster1.ppdle.mongodb.net/eventEaseDB?retryWrites=true&w=majority&appName=Cluster1")
