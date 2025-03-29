@@ -10,6 +10,7 @@ import Header from "./component/Header";  // Import Header
 import Footer from "./component/Footer";
 import AboutUs from "./component/AboutUs"
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -23,8 +24,7 @@ function App() {
           <Route path="/update-event/" element={<UpdateEvent />} />
           <Route path="/event-details/" element={<EventDetails />} />
           <Route path="/about/" element={<AboutUs />} />
-
-
+          
         </Routes>
       </div>
       <Footer />

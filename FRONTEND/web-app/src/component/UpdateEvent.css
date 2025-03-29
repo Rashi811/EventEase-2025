@@ -16,7 +16,7 @@
   width: 500px;
   max-width: 90%;
   margin: 0 auto;
-  transform: translateY(50px);
+  transform: translateY(); /* Changed from translateY(50px) to translateY(0) */
 }
 
 form {
@@ -26,7 +26,7 @@ form {
   margin: auto;
 }
 
-input, textarea {
+input, textarea, select {
   margin: 10px 0;
   padding: 12px;
   border: 1px solid #ddd;

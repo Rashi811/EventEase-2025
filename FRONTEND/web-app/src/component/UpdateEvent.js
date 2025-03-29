@@ -26,8 +26,22 @@ const UpdateEvent = () => {
     <div className="update-event">
       <h1>Update Event</h1>
       <form onSubmit={handleSubmit}>
+        <select
+          name="eventType"
+          value={eventData.eventType || ""}
+          onChange={handleChange}
+          required
+        >
+          <option value="" disabled>Select Event Type</option>
+          <option value="Wedding">Wedding</option>
+          <option value="Conference">Conference</option>
+          <option value="Get-together">Get-together</option>
+          <option value="Workshop">Workshop</option>
+          <option value="Birthday">Birthday</option>
+          <option value="Engagement">Engagement</option>
+          <option value="Other">Other</option>
+        </select>
         <input type="text" name="eventName" value={eventData.eventName || ""} placeholder="Event Name" onChange={handleChange} required />
-        <input type="text" name="eventType" value={eventData.eventType || ""} placeholder="Event Type" onChange={handleChange} required />
         <input type="text" name="contactNumber" value={eventData.contactNumber || ""} placeholder="Contact Number" onChange={handleChange} required />
         <input type="email" name="email" value={eventData.email || ""} placeholder="Email" onChange={handleChange} required />
         <input type="date" name="date" value={eventData.date ? eventData.date.split("T")[0] : ""} onChange={handleChange} required />

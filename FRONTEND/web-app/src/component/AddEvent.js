@@ -61,7 +61,6 @@ const AddEvent = () => {
           <option value="Other">Other</option>
         </select>
         <input type="text" name="eventName" placeholder="Event Name" value={eventData.eventName} onChange={handleChange} required/>
-
         <input type="text" name="contactNumber"  placeholder="Contact Number"  value={eventData.contactNumber} onChange={handleChange} required/>
         <input type="email" name="email" placeholder="Email" value={eventData.email} onChange={handleChange}  required  />
         <input type="date" name="date" value={eventData.date}  onChange={handleChange} required min={currentDate}/>
