@@ -6,10 +6,6 @@
 .env.test.local
 .env.production.local
 
-node_modules/
-.cache/
-
-
 # Logs
 logs
 *.log
@@ -83,3 +79,7 @@ BACKEND/node_modules/puppeteer/.local-chromium/
 
 # Ignore Puppeteer-related files
 BACKEND/node_modules/puppeteer/.local-chromium/
+
+
+# Ignore node_modules and cache folders
+node_modules
