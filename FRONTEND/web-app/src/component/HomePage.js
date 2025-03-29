@@ -28,7 +28,7 @@ function HomePage() {
       <nav className="navbar">
         <ul className="nav-links">
           <li><a href="event">Event</a></li>
-          <li><a href="#venue">Venue</a></li>
+          <li><a href="venues">Venue</a></li>
           <li><a href="#staff">Staff</a></li>
           <li><a href="#chat">Chat Us</a></li>
           <li><a href="about">About</a></li>

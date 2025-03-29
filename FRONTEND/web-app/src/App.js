@@ -10,6 +10,15 @@ import Header from "./component/Header";  // Import Header
 import Footer from "./component/Footer";
 import AboutUs from "./component/AboutUs";
 
+//Ruvindya
+import MainVenuePage from "./component/Venue/pages/MainVenuePage.js";
+import BookingPage from "./component/Venue/pages/BookingPage.js";
+import SuggestVenueForm from './component/Venue/SuggestVenueForm.js';
+import BookingCalendar from "./component/Venue/BookingCalendar.js";
+import BookingForm from "./component/Venue/BookingForm.js";
+import AdminVenue from "./component/Venue/AdminVenue.js";
+
+
 //Gangani
 import TaskDashboard from "./component/Task/TaskDashboard";
 import TaskCreateForm from "./component/Task/CreateTaskForm";
@@ -33,6 +42,13 @@ function App() {
           <Route path="/create-task/" element={<TaskCreateForm/>} />
           <Route path="/task-list/" element={<TaskList/>}/>
           <Route path="/update-task/:id" element={<UpdateTaskForm/>} />
+
+          <Route path="/venues" element={<MainVenuePage />} />
+          <Route path="/book" element={<BookingPage />} />
+          <Route path="/suggest-venue" element={<SuggestVenueForm />} />
+          <Route path="/booking-calendar" element={<BookingCalendar/>} />
+          <Route path="/booking-form" element={<BookingForm/>} />
+          <Route path="/admin-venue" element={<AdminVenue/>} />
         </Routes>
       </div>
       <Footer />
