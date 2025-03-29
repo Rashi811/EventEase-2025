@@ -14,6 +14,7 @@ const TaskList = () => {
       try {
         const response = await axios.get('http://localhost:5000/api/tasks');
         console.log(response.data.tasks);
+        //handle the task list
         // Handle response based on table name "Tasks"
         const tasksData = Array.isArray(response.data) 
           ? response.data 
